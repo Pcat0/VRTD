@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Hologram
+  m_Shader: {fileID: 4800000, guid: 94359f521c12c134ab55d2855f449f08, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _SampleTexture2D_53F45B86_Texture:
+        m_Texture: {fileID: 2800000, guid: 936a43635c57b0a408fb70bee7efbb2a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_761E0162_Texture:
+        m_Texture: {fileID: 2800000, guid: 29811a4a03cb1194fb136a57944ad78e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_9F4390BE_Texture:
+        m_Texture: {fileID: 2800000, guid: b5de59890e90d844c9ff5f0e14e3f61d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_A49B47BE_Texture:
+        m_Texture: {fileID: 2800000, guid: 29811a4a03cb1194fb136a57944ad78e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors: []
