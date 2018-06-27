@@ -42,7 +42,7 @@ public class Teleporter : MonoBehaviour {
             //Debug.Log("triggerDown");
             firstFrameUp = true;
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 1 << 8)) {
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 20f, 1 << 8)) {
                 Node newNode = hit.collider.GetComponent<Node>();
                 ShowLaser(hit);
                 if (newNode != null) {
