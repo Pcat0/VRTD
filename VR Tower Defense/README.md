@@ -1,2 +1,2 @@
 # VR Tower Defence
-_[TODO: Add everything]_
+_[TODO: Add stuff to readme]_
