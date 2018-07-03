@@ -5,10 +5,12 @@ using UnityEngine;
 public class Player {
     public Transform XRRig;
     public Node currentNode { get; private set; }
+    public float flops;
 
     public Player(Node startingNode, Transform _XRRig) {
         XRRig = _XRRig;
-        Teleport(startingNode);
+        if (startingNode != null)
+            Teleport(startingNode);
     } 
     public void Teleport(Node tpNode) {
         if (currentNode != null)
