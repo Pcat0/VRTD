@@ -9,10 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1469c8b7efc1f6e4682786173f2e8391, type: 3}
-  m_Name: Test
+  m_Name: Simple Turret
   m_EditorClassIdentifier: 
-  nameType: NAME
+  buildingName: Simple Turret
   description: Random gibberish describing the turrets. yad yad yad....... Just some
     more space filling text. I think I need more. Ah thats good.
   cost: 10
   teir: 1
+  preFab: {fileID: 1234161394793326, guid: 9dc3ba42c2946d244a485f74d6a445ea, type: 2}

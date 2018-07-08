@@ -49,9 +49,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4999386939271090}
-  - component: {fileID: 114237997601377084}
-  - component: {fileID: 114091367486225722}
-  - component: {fileID: 114431371620849226}
+  - component: {fileID: 114214222105651816}
   m_Layer: 8
   m_Name: Simple Turret
   m_TagString: Untagged
@@ -59,6 +57,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1237428585267200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4139517653080642}
+  - component: {fileID: 114003560543799628}
+  - component: {fileID: 114242773445852118}
+  - component: {fileID: 114946867655574212}
+  m_Layer: 8
+  m_Name: Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1333041707782280
 GameObject:
   m_ObjectHideFlags: 1
@@ -108,6 +124,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4139517653080642
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1237428585267200}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4999386939271090}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4319315931822732
 Transform:
   m_ObjectHideFlags: 1
@@ -136,7 +165,7 @@ Transform:
   - {fileID: 4640911202249578}
   - {fileID: 4319315931822732}
   m_Father: {fileID: 4999386939271090}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4640911202249578
 Transform:
@@ -187,6 +216,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4139517653080642}
   - {fileID: 4488488342308278}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -278,25 +308,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1713864870883044}
   m_Mesh: {fileID: 4300000, guid: 3d50dd50fc730f64bb4dd3650caf117d, type: 3}
---- !u!114 &114091367486225722
+--- !u!114 &114003560543799628
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1234161394793326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea27f1ee0e5e60d43a087a1250d79fe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turretController: {fileID: 114237997601377084}
-  range: 10
---- !u!114 &114237997601377084
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1234161394793326}
+  m_GameObject: {fileID: 1237428585267200}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65497d520806d18408ed9bc7cfe7a17b, type: 3}
@@ -310,7 +327,7 @@ MonoBehaviour:
   zAxis: {fileID: 4319315931822732}
   yAxis: {fileID: 4319315931822732}
   barrelLocation: {fileID: 4837338509110742}
---- !u!114 &114431371620849226
+--- !u!114 &114214222105651816
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -318,7 +335,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 1234161394793326}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 045a6381a65207e47a5f496cac407c4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 1237428585267200}
+--- !u!114 &114242773445852118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1237428585267200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea27f1ee0e5e60d43a087a1250d79fe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretController: {fileID: 114003560543799628}
+  range: 10
+--- !u!114 &114946867655574212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1237428585267200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a05f50155fcda0f45a8e7cbe75710378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretController: {fileID: 114237997601377084}
+  turretController: {fileID: 114003560543799628}
