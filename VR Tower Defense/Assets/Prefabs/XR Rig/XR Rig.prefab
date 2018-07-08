@@ -58,6 +58,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4968857422518788}
   - component: {fileID: 95563813359828414}
+  - component: {fileID: 114118190982084892}
   m_Layer: 0
   m_Name: Shop
   m_TagString: Untagged
@@ -1344,6 +1345,24 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &114118190982084892
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1048896633848110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73efc40c622f6df4cab8ddbe75c8d7c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotSpeed: 20
+  nameField: {fileID: 114238071683851404}
+  descriptionField: {fileID: 114052209772269564}
+  buildingPreview: {fileID: 4099234280460070}
+  avalibleBuildings:
+  - {fileID: 11400000, guid: 4f5d951161fdc6a4f8e5178c047dda2e, type: 2}
+  - {fileID: 11400000, guid: 674c2a81b45e56a4c9e6cb7ce4ffbd47, type: 2}
 --- !u!114 &114126486927877948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2577,14 +2596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ab51ed83c333b54f8d1afce205c4a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotSpeed: 20
   textController: {fileID: 114718024135929616}
-  holoTrasform: {fileID: 4968857422518788}
-  nameField: {fileID: 114238071683851404}
-  descriptionField: {fileID: 114052209772269564}
-  buildingPreview: {fileID: 4099234280460070}
-  buildingsInShop:
-  - {fileID: 11400000, guid: 4f5d951161fdc6a4f8e5178c047dda2e, type: 2}
 --- !u!114 &114967984087900000
 MonoBehaviour:
   m_ObjectHideFlags: 1

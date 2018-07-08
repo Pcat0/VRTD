@@ -1,0 +1,70 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Shop : MonoBehaviour {
+    [SerializeField]
+    private float rotSpeed;
+    [SerializeField]
+    private Text nameField;
+    [SerializeField]
+    private Text descriptionField;
+    [SerializeField]
+    private Transform buildingPreview;
+
+    public BuildingType[] avalibleBuildings;
+
+    private bool isShown = true;
+    private int _Index = 0;
+    public int Index {
+        get {
+            return _Index;
+        }
+        set {
+            _Index = value % avalibleBuildings.Length;
+            RefreshShop();
+        }
+    }
+    public BuildingType CurrentBuilding {
+        get {
+            return avalibleBuildings[Index];
+        }
+    }
+    private void RefreshShop() {
+        nameField.text = CurrentBuilding.buildingName;
+        descriptionField.text = CurrentBuilding.description;
+        if (buildingPreview.childCount != 0) {
+            Destroy(buildingPreview.GetChild(0).gameObject);
+        }
+        Instantiate(CurrentBuilding.preFab, buildingPreview);
+    }
+    public void ShowShop() {
+        //TODO: Show holo
+        isShown = true;
+    }
+    public void HideShop() {
+        //TODO: Hide holo
+        isShown = false;
+    }
+    public void Next() {
+        Index += 1;
+    }
+    public void Back() {
+        Index -= 1;
+    }
+    // Use this for initialization
+    void Awake () {
+        Index = 0;
+    }
+	// Update is called once per frame
+	void Update () {
+        buildingPreview.Rotate(Vector3.up * Time.deltaTime * rotSpeed);
+        if (isShown) {
+            float xAxis = Input.GetAxisRaw("LTrackpadH");
+            float yAxis = Input.GetAxisRaw("LTrackpadV");
+            Debug.Log(xAxis.ToString() + ", " + yAxis.ToString());
+        }
+    }
+    
+}
