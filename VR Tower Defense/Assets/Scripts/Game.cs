@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XRPlus;
 [DisallowMultipleComponent]
 public class Game : MonoBehaviour {
     public static readonly System.Random random = new System.Random();
@@ -21,9 +22,11 @@ public class Game : MonoBehaviour {
     [SerializeField]
     private Transform XRRig;
 
-    
-    
 
+
+    private void Start() {
+        
+    }
     private void Awake() {
         waveManager = GetComponent<WaveManager>();
         buildings = buildingsTypes;
@@ -32,4 +35,5 @@ public class Game : MonoBehaviour {
     private void Update() {
         player.flops = flops;
     }
+
 }
