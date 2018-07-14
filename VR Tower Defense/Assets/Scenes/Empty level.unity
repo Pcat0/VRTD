@@ -418,16 +418,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 715b173cb478971419f4c8be61183112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MenuL: 0
-  GripL: 0
-  TriggerTouchL: 0
-  TrackpadPressL: 0
-  TrackpadTouchL: 0
-  MenuR: 0
-  GripR: 0
-  TriggerTouchR: 0
-  TrackpadPressR: 0
-  TrackpadTouchR: 0
 --- !u!1 &1613665217 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1254022861880466, guid: 99325d83a8e002242b4e39cbfa26eb4b,
@@ -444,16 +434,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 715b173cb478971419f4c8be61183112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MenuL: 0
-  GripL: 0
-  TriggerTouchL: 0
-  TrackpadPressL: 0
-  TrackpadTouchL: 0
-  MenuR: 0
-  GripR: 0
-  TriggerTouchR: 0
-  TrackpadPressR: 0
-  TrackpadTouchR: 0
 --- !u!4 &1711770799 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4765183743866132, guid: 99325d83a8e002242b4e39cbfa26eb4b,
@@ -464,7 +444,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1204
+  m_Name: pb_Mesh-1202
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
