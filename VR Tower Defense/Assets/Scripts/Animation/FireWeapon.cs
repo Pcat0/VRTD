@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XRPlus;
 
 public class FireWeapon : StateMachineBehaviour {
 
@@ -9,13 +10,13 @@ public class FireWeapon : StateMachineBehaviour {
     [Range(0,1)]
     public float pullDistance;
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        float axis = Input.GetAxis("RTrigger");
+        float axis = XRPlusHandler.Right.Trigger;
         isTriggerDown = axis >= pullDistance;
     }
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        float axis = Input.GetAxis("RTrigger");
+        float axis = XRPlusHandler.Right.Trigger;
         if (axis >= pullDistance) {
             if (!isTriggerDown) {
                 animator.SetTrigger("Fire");

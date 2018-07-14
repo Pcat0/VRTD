@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XRPlus;
 
 
 //TODO: Move laser pointer and UI code to dif file
@@ -38,7 +39,7 @@ public class Teleporter : MonoBehaviour {
     }
     // Update is called once per frame
     void Update() {
-        if (Input.GetAxis("LTrigger") >= .9f) {
+        if (XRPlusHandler.Left.Trigger >= .9f) {
             //Debug.Log("triggerDown");
             firstFrameUp = true;
             RaycastHit hit;

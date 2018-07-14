@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
-using XRPlus;
+using XRPlus_;
 //TODO: clean up
-namespace XRPlus {
+namespace XRPlus_ {
     public enum XRControllerHand { Left, Right };
     public enum XRControllerType { Vive, Oculus };
     public enum XRButton { Grip, Trigger, Trackpad, Menu };
@@ -46,7 +46,7 @@ namespace XRPlus {
         public void Update() {
             float triggerValue = Input.GetAxisRaw(h + "Trigger");
             Axes[XRAxis.Trigger] = triggerValue;
-            UpdateButton(XRButton.Trigger, triggerValue == 1f);
+            //UpdateButton(XRButton.Trigger, triggerValue == 1f);
         }
     }
 
@@ -74,7 +74,7 @@ namespace XRPlus {
         private static void CreateXRGameObject() {
             new GameObject("[XRPlus]", typeof(XRPlusComponent));
         }
-        [RuntimeInitializeOnLoadMethod]
+        //[RuntimeInitializeOnLoadMethod]
         static void OnLoadMethod() {
             Debug.Log("loading VRInput Events");
             MonoBehaviour _monoBehaviour = (new MonoBehaviour());
@@ -104,18 +104,15 @@ namespace XRPlus {
                     }
                 }
             }
-            CreateXRGameObject();
+            //CreateXRGameObject();
             //High: I Dont Like how this looks
-            new XRController(XRControllerHand.Left);
-            new XRController(XRControllerHand.Right);
-            Debug.Log(XRController.XRControllers.ToString());
         }
     }
 }
 [DisallowMultipleComponent]
 public class XRPlusComponent : MonoBehaviour {
     private void Update() {
-        XRController.XRControllers[XRControllerHand.Left].Update();
-        XRController.XRControllers[XRControllerHand.Right].Update();
+        //XRController.XRControllers[XRControllerHand.Left].Update();
+        //XRController.XRControllers[XRControllerHand.Right].Update();
     }
 }

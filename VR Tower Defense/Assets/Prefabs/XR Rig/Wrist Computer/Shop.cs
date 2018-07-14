@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using XRPlus;
 public class Shop : MonoBehaviour {
     [SerializeField]
     private float rotSpeed;
@@ -61,9 +61,13 @@ public class Shop : MonoBehaviour {
 	void Update () {
         buildingPreview.Rotate(Vector3.up * Time.deltaTime * rotSpeed);
         if (isShown) {
-            float xAxis = Input.GetAxisRaw("LTrackpadH");
-            float yAxis = Input.GetAxisRaw("LTrackpadV");
-            Debug.Log(xAxis.ToString() + ", " + yAxis.ToString());
+            float xAxis = XRPlusHandler.Left.Horizontal;
+            float yAxis = XRPlusHandler.Left.Vertical;
+            if (XRPlusHandler.OffController.GetButtonDown(XRButtonName.TrackpadPress)) {
+                Debug.Log("down");
+                Index += (int)xAxis;
+            }
+                
         }
     }
     
