@@ -31,6 +31,7 @@ namespace XRPlus {
         Left,
         Right
     }
+    //High: add axis value change
     /// <summary>
     /// Dont touch, (For internal use only).
     /// </summary>
@@ -38,6 +39,9 @@ namespace XRPlus {
         private static int frame = -1;
         private static bool[] gripValue = new bool[] { false, false };
         private static bool[] GripLastValue { get; set; }
+        private static float[] lastAxisValue = new float[13];
+        private static float[] thisAxisValue = new float[13];
+        private static readonly int[] trackedAxis = { 9, 11, 1, 2, 10, 12, 4, 5 };
         private static bool[] GripValue {
             get {
                 Update();
@@ -60,6 +64,10 @@ namespace XRPlus {
                     Input.GetAxisRaw("joystick axis 12") == 1f,
                     Input.GetAxisRaw("joystick axis 11") == 1f
                 };
+                foreach (var index in trackedAxis) {
+                    lastAxisValue[index] = thisAxisValue[index];
+                    thisAxisValue[index] = GetAxis(index);
+                }
             }
         }
         public static bool GetKey(int index) {
@@ -77,7 +85,7 @@ namespace XRPlus {
             } else if (index == 3) {
                 return GripValue[1] && !GripLastValue[1];
             } else {
-                return Input.GetKey("joystick button " + index);
+                return Input.GetKeyDown("joystick button " + index);
             }
         }
         public static bool GetKeyUp(int index) {
@@ -86,11 +94,16 @@ namespace XRPlus {
             } else if (index == 3) {
                 return !GripValue[1] && GripLastValue[1];
             } else {
-                return Input.GetKey("joystick button " + index);
+                return Input.GetKeyUp("joystick button " + index);
             }
         }
         public static float GetAxis(int index) {
+            Update();
             return Input.GetAxisRaw("joystick axis " + index);
+        }
+        public static float GetAxisDelta(int index) {
+            Update();
+            return thisAxisValue[index] - lastAxisValue[index];
         }
     }
 
@@ -137,7 +150,26 @@ namespace XRPlus {
         public float GetAxis(XRAxisName axisName) {
             return XRInput.GetAxis(axisIndexes[(int)axisName]);
         }
-
+        /// <summary>
+        /// Gets how mutch axisName axis value has changes since last frame.
+        /// </summary>
+        /// <param name="axisName">XRAxisName </param>
+        /// <returns>float change in since last frame</returns>
+        public float GetAxisDelta(XRAxisName axisName) {
+            return XRInput.GetAxisDelta(axisIndexes[(int)axisName]);
+        }
+        /// <summary>
+        /// Gets how mutch axisName axis value has changes since last frame,
+        /// But will account for jump from 0,0 when a finger is set on the trackpad.
+        /// </summary>
+        /// <param name="axisName">XRAxisName </param>
+        /// <returns>float change in since last frame</returns>
+        public float GetTrueAxisDelta(XRAxisName axisName) {
+            if (axisName == XRAxisName.Vertical || axisName == XRAxisName.Horizontal)
+                if (GetButtonDown(XRButtonName.TrackpadTouch) || !GetButton(XRButtonName.TrackpadTouch))
+                    return 0;
+            return XRInput.GetAxisDelta(axisIndexes[(int)axisName]);
+        }
         public XRController(XRControllerHand hand, int[] buttonIndexes, int[] axisIndexes) {
             this.hand = hand;
             this.buttonIndexes = buttonIndexes;

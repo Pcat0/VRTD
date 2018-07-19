@@ -25,7 +25,7 @@ public class UnityMessageExtender : MonoBehaviour {
 
 
     private void Update() {
-        if (FixedUpdateCall != null)
+        if (UpdateCall != null)
             UpdateCall();
     }
     private void FixedUpdate() {
@@ -33,7 +33,7 @@ public class UnityMessageExtender : MonoBehaviour {
             FixedUpdateCall();
     }
     private void LateUpdate() {
-        if (FixedUpdateCall != null)
+        if (LateUpdateCall != null)
             LateUpdateCall();
     }
 }

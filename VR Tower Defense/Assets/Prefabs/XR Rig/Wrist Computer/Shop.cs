@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using XRPlus;
 public class Shop : MonoBehaviour {
+    public float rotAmp = 0;
+
     [SerializeField]
     private float rotSpeed;
     [SerializeField]
@@ -12,8 +14,15 @@ public class Shop : MonoBehaviour {
     private Text descriptionField;
     [SerializeField]
     private Transform buildingPreview;
+    [SerializeField]
+    private SelectionWheel wheel;
+    [SerializeField]
+    private GameObject testObject;
 
     public BuildingType[] avalibleBuildings;
+
+    [SerializeField]
+    private float AngleOffset;
 
     private bool isShown = true;
     private int _Index = 0;
@@ -35,9 +44,9 @@ public class Shop : MonoBehaviour {
         nameField.text = CurrentBuilding.buildingName;
         descriptionField.text = CurrentBuilding.description;
         if (buildingPreview.childCount != 0) {
-            Destroy(buildingPreview.GetChild(0).gameObject);
+            //Destroy(buildingPreview.GetChild(0).gameObject);
         }
-        Instantiate(CurrentBuilding.preFab, buildingPreview);
+        //Instantiate(CurrentBuilding.preFab, buildingPreview);
     }
     public void ShowShop() {
         //TODO: Show holo
@@ -54,11 +63,14 @@ public class Shop : MonoBehaviour {
         Index -= 1;
     }
     // Use this for initialization
-    void Awake () {
-        Index = 0;
+    void Awake() {
+        //Index = 0;
     }
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update() {
+        float rot = XRPlusHandler.Left.GetTrueAxisDelta(XRAxisName.Horizontal) * rotAmp;
+        wheel.Rotate(rot);
+        return;
         buildingPreview.Rotate(Vector3.up * Time.deltaTime * rotSpeed);
         if (isShown) {
             float xAxis = XRPlusHandler.Left.Horizontal;
@@ -67,7 +79,7 @@ public class Shop : MonoBehaviour {
                 Debug.Log("down");
                 Index += (int)xAxis;
             }
-                
+
         }
     }
     

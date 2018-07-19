@@ -41,9 +41,9 @@ public class ControllerInspectorWindow : EditorWindow {
     }
     void DrawTrackpad(float width, float height, float x, float y, bool showCrosshairs) {
         GUI.BeginGroup(new Rect(Screen.width / 2 - width / 2, Screen.height / 2 - height / 2, width, height));
-        GUI.Box(new Rect(0, 0, width, height), trackpad);
+        GUI.Box(new Rect(0, 0, width, height), trackpad, GUIStyle.none);
         if (showCrosshairs)
-            GUI.Box(new Rect(width * (x * .5f *.5f + .5f) - 10, height * (y * .5f * .5f + .5f) - 10, 20, 20), crosshairs);
+            GUI.Box(new Rect(width * (x * .5f *.5f + .5f) - 10, height * (y * .5f * .5f + .5f) - 10, 20, 20), crosshairs, GUIStyle.none);
         GUI.EndGroup();
     }
     void DrawToolBar() {

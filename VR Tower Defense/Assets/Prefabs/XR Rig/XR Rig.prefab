@@ -143,6 +143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4765183743866132}
   - component: {fileID: 114784493410699058}
+  - component: {fileID: 114356488335589258}
   m_Layer: 0
   m_Name: XR Rig
   m_TagString: Untagged
@@ -162,6 +163,22 @@ GameObject:
   - component: {fileID: 23897146686053016}
   m_Layer: 0
   m_Name: PM-40_Top
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1273901880594914
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4115030243388720}
+  - component: {fileID: 114394263561535282}
+  m_Layer: 0
+  m_Name: SelectionWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -404,7 +421,6 @@ GameObject:
   - component: {fileID: 4540322315992352}
   - component: {fileID: 114256538534453770}
   - component: {fileID: 114555866407246802}
-  - component: {fileID: 114450716626148906}
   m_Layer: 0
   m_Name: Right Hand
   m_TagString: Untagged
@@ -542,6 +558,19 @@ Transform:
   m_Father: {fileID: 4951646121357316}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4115030243388720
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1273901880594914}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: -0.2163, y: -0.04, z: -0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_Children: []
+  m_Father: {fileID: 4968857422518788}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 180}
 --- !u!4 &4323238177407558
 Transform:
   m_ObjectHideFlags: 1
@@ -777,6 +806,7 @@ Transform:
   m_Children:
   - {fileID: 224917352245206790}
   - {fileID: 4099234280460070}
+  - {fileID: 4115030243388720}
   m_Father: {fileID: 4061861897291262}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1356,13 +1386,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73efc40c622f6df4cab8ddbe75c8d7c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotAmp: 35
   rotSpeed: 20
   nameField: {fileID: 114238071683851404}
   descriptionField: {fileID: 114052209772269564}
   buildingPreview: {fileID: 4099234280460070}
+  wheel: {fileID: 114394263561535282}
+  testObject: {fileID: 0}
   avalibleBuildings:
   - {fileID: 11400000, guid: 4f5d951161fdc6a4f8e5178c047dda2e, type: 2}
   - {fileID: 11400000, guid: 674c2a81b45e56a4c9e6cb7ce4ffbd47, type: 2}
+  AngleOffset: 30
 --- !u!114 &114126486927877948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1553,6 +1587,17 @@ MonoBehaviour:
   m_TrackingType: 0
   m_UpdateType: 0
   m_UseRelativeTransform: 0
+--- !u!114 &114356488335589258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1254022861880466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114366732017849362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1565,6 +1610,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityType: 0
+--- !u!114 &114394263561535282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1273901880594914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e9450d933f51eb46afd883738d23582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testObject: {fileID: 0}
+  edge: {fileID: 4099234280460070}
 --- !u!114 &114436921388180226
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1613,17 +1671,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 10
---- !u!114 &114450716626148906
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1780495296062276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 850dbfb2b70a6344193545c1315ab3e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114482199586560200
 MonoBehaviour:
   m_ObjectHideFlags: 1
